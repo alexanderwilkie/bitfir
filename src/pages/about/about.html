@@ -1,0 +1,28 @@
+<ion-header>
+	<bitfir-title></bitfir-title>
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+		<ion-card-content>
+			Hello World, this is my camera app
+
+			<div *ngIf="lastBitFi !== null">
+				Latest Picture:
+				<img src="{{ lastBitFi?.photoPath }}" *ngIf="base64Image" />
+
+				<p>alpha: {{ lastBitFi?.alpha }}</p>
+				<p>beta: {{ lastBitFi?.beta }}</p>
+				<p>gamma: {{ lastBitFi?.gamma }}</p>
+
+				<p>magneticHeading: {{ lastBitFi?.magneticHeading }}</p>
+			</div>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-fab center bottom small>
+		<button (click)="tp()" ion-fab color="light">
+			<ion-icon name="camera"></ion-icon>
+		</button>
+	</ion-fab>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header>
+	<bitfir-title></bitfir-title>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-card *ngFor="let bitfir of bitfirs">
+			<div style="position: relative">
+				<img src="{{ bitfir?.keyBitFi?.imagePath }}"/>
+				<ion-fab right top>
+					<button ion-fab (click)="loadBitfirDetails($event, bitfir)">
+						<ion-icon name="pin"></ion-icon>
+					</button>
+				</ion-fab>
+			</div>
+			<ion-item>
+				<h2>{{ bitfir?.name }}</h2>
+				<p>{{ bitfir?.location?.latitude }}, {{ bitfir?.location?.longitude }}</p>
+			</ion-item>
+
+			<ion-item actions>
+				<span item-left ion-text color="secondary" class="item-bold">{{ bitfir?.location?.getDistanceFrom(posData.currentLatitude, posData.currentLongitude) }} km</span>
+			</ion-item>
+		</ion-card>
+	</ion-list>
+	<br/><br/>
+</ion-content>
